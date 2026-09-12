@@ -13,7 +13,7 @@ import re
 import glob
 import os
 
-SITE_DIR = os.path.dirname(os.path.abspath(__file__)) if False else "/home/claude/site"
+SITE_DIR = os.path.dirname(os.path.abspath(__file__)) 
 REPORTS_DIR = os.path.join(SITE_DIR, "reports")
 
 NAV_CSS = """
