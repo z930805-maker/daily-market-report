@@ -84,7 +84,7 @@ def main():
     print(f"已產生 index.html（內容 = {latest_date} 報表）")
 
     # 3) 產生 history.html（新到舊）
-    dated_files_desc = list(reversed(dated_files))
+    dated_files_desc = list(reversed(dated_files))[:30]
     list_items = "\n".join(
         f'        <li><a href="reports/{d}.html">{d.replace("-", "/")}</a></li>'
         for d, _ in dated_files_desc
@@ -124,7 +124,7 @@ def main():
   <ul>
 {list_items}
   </ul>
-  <footer>共 {len(dated_files_desc)} 期報表</footer>
+  <footer>顯示近 {len(dated_files_desc)} 期報表</footer>
 </div>
 </body>
 </html>
