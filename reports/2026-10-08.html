@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>觀光產業看盤日報 2026/10/08</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #f2ede4; color: #2b2b2b; font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif; padding: 32px 24px; }
+  .wrap { max-width: 1100px; margin: 0 auto; }
+  header { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 2px solid #2b3a52; padding-bottom: 14px; margin-bottom: 22px; }
+  header h1 { font-size: 22px; letter-spacing: 1px; color: #2b3a52; }
+  header .date { font-size: 14px; color: #5a5a52; font-weight: 600; }
+  .kpi-row { display: flex; gap: 14px; margin-bottom: 26px; flex-wrap: wrap; }
+  .kpi-card { flex: 1; min-width: 200px; background: #faf8f3; border: 1px solid #ddd8cc; padding: 14px 16px; }
+  .kpi-card .label { font-size: 12px; color: #7a7568; margin-bottom: 6px; }
+  .kpi-card .value { font-family: "JetBrains Mono", monospace; font-size: 20px; font-weight: 700; }
+  .kpi-card .sub { font-family: "JetBrains Mono", monospace; font-size: 13px; margin-top: 2px; }
+  .highlights { background: #faf8f3; border: 1px solid #ddd8cc; padding: 16px 20px; margin-bottom: 30px; }
+  .highlights h2 { font-size: 14px; color: #2b3a52; margin-bottom: 10px; letter-spacing: 1px; }
+  .highlights ul { list-style: none; }
+  .highlights li { font-size: 14px; line-height: 1.9; padding-left: 18px; position: relative; }
+  .highlights li::before { content: "■"; color: #c0392b; position: absolute; left: 0; font-size: 10px; top: 6px; }
+  .highlights b { color: #c0392b; font-family: "JetBrains Mono", monospace; }
+  .highlights em { color: #1a6b3c; font-style: normal; font-family: "JetBrains Mono", monospace; }
+  .group { margin-bottom: 26px; }
+  .group-head { background: #2b3a52; color: #fff; padding: 8px 16px; display: flex; justify-content: space-between; align-items: center; font-size: 15px; font-weight: 700; letter-spacing: 1px; }
+  .group-head .badge { background: rgba(255,255,255,0.15); padding: 2px 10px; border-radius: 10px; font-size: 12px; font-weight: 400; }
+  table { width: 100%; border-collapse: collapse; background: #fff; }
+  thead th { background: #e8e4da; font-size: 12px; color: #4a4636; padding: 8px 6px; border-bottom: 1px solid #ddd8cc; font-weight: 600; text-align: center; }
+  tbody td { font-size: 13px; padding: 7px 6px; text-align: center; border-bottom: 1px solid #ddd8cc; }
+  td.name { text-align: left; padding-left: 12px; font-weight: 600; }
+  td.num { font-family: "JetBrains Mono", monospace; }
+  .bx { display: inline-block; font-size: 11px; padding: 1px 6px; border-radius: 3px; color: #fff; }
+  .bl { background: #2f5fa8; } .bo { background: #1a6b3c; } .be { background: #c07a1e; }
+  .up { color: #c0392b; font-weight: 700; } .dn { color: #1a6b3c; font-weight: 700; } .fl { color: #8b6914; font-weight: 700; } .na { color: #999; }
+  footer { text-align: center; font-size: 11px; color: #999; margin-top: 20px; padding-top: 12px; border-top: 1px solid #ddd8cc; }
+
+  .tscroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .toggle { display: none; }
+  .hint { display: none; font-size: 11px; color: #7a7568; text-align: right; padding: 4px 4px 0; }
+  .kpi-card { flex: 1 1 200px; }
+  @media (max-width: 720px) {
+    body { padding: 14px 10px; }
+    header { flex-direction: column; align-items: flex-start; gap: 4px; margin-bottom: 14px; }
+    header h1 { font-size: 19px; }
+    .kpi-row { gap: 8px; margin-bottom: 16px; }
+    .kpi-card { flex: 1 1 calc(50% - 4px); min-width: 0; padding: 10px 12px; }
+    .kpi-card .value { font-size: 17px; }
+    .kpi-card .sub { font-size: 12px; }
+    .highlights { padding: 12px 14px; margin-bottom: 20px; }
+    .highlights li { font-size: 13px; line-height: 1.7; }
+    .group { margin-bottom: 18px; }
+    .group-head { font-size: 14px; padding: 7px 12px; }
+    .hint { display: block; }
+    table { min-width: 0; width: 100%; }
+    body:not(.full) thead th:nth-child(3), body:not(.full) tbody td:nth-child(3),
+    body:not(.full) thead th:nth-child(5), body:not(.full) tbody td:nth-child(5),
+    body:not(.full) thead th:nth-child(6), body:not(.full) tbody td:nth-child(6),
+    body:not(.full) thead th:nth-child(7), body:not(.full) tbody td:nth-child(7),
+    body:not(.full) thead th:nth-child(13), body:not(.full) tbody td:nth-child(13) { display: none; }
+    body.full table { min-width: 780px; width: auto; }
+    .toggle { display: block; width: 100%; margin: 0 0 16px; padding: 9px; border: 1px solid #2b3a52; background: #faf8f3; color: #2b3a52; font-size: 13px; font-weight: 600; border-radius: 4px; }
+    thead th, tbody td { font-size: 12px; padding: 7px 5px; white-space: nowrap; }
+    thead th:nth-child(1), tbody td:nth-child(1) { position: sticky; left: 0; z-index: 2; min-width: 46px; background: #fff; }
+    thead th:nth-child(2), tbody td:nth-child(2) { position: sticky; left: 46px; z-index: 2; min-width: 72px; background: #fff; box-shadow: 2px 0 3px rgba(0,0,0,.08); }
+    thead th:nth-child(1), thead th:nth-child(2) { background: #e8e4da; }
+    td.name { padding-left: 6px; }
+  }
+  @media print { .hint, .toggle { display: none !important; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>觀光產業看盤日報</h1>
+    <div class="date">2026年10月08日（星期四）</div>
+  </header>
+
+  <div class="kpi-row">
+    <div class="kpi-card"><div class="label">觀光餐旅類指數</div><div class="value">102.23</div><div class="sub up">▲ +0.54%</div></div>
+    <div class="kpi-card"><div class="label">發行量加權股價指數（大盤）</div><div class="value">49,313.44</div><div class="sub dn">▼ -0.99%</div></div>
+    <div class="kpi-card"><div class="label">上漲家數 / 下跌家數</div><div class="value" style="font-size:18px;"><span class="up">425</span> / <span class="dn">540</span></div><div class="sub" style="color:#7a7568;">含漲停 14 檔 / 跌停 2 檔</div></div>
+    <div class="kpi-card"><div class="label">總成交金額</div><div class="value">約 0.85 兆</div><div class="sub" style="color:#7a7568;">850,463,146,596 元</div></div>
+  </div>
+
+  <div class="highlights">
+    <h2>TODAY'S HIGHLIGHTS</h2>
+    <ul>
+      <li>漲幅最大：<b>饗賓(7883) +2.88%</b>，收 274.00 元（易飛網 +2.45%、王品 +1.71% 次之）。</li>
+      <li>成交量最大：<b>長榮航(2618)</b> 成交量 10,747 張，居 28 檔之冠（華航 8,108 張次之）。</li>
+      <li>跌幅最大：<em>安心(1259) -1.98%</em>，為今日跌幅最深個股（長榮航 -1.31%、華航 -0.98% 次之）。</li>
+      <li>本益比最低：<b>五福(2745) PE 8.71 倍</b>，估值相對偏低。</li>
+      <li>觀光指數 vs 大盤：觀光餐旅類指數 <b>+0.54%</b>，大盤 <em>-0.99%</em>，觀光類股今日逆勢上漲、明顯抗跌。</li>
+      <li>28 檔個股 <b>15</b> 檔上漲、4 檔持平、<em>9</em> 檔下跌。</li>
+    </ul>
+  </div>
+
+  <button class="toggle" id="tg" type="button">顯示完整欄位（最高／最低／昨收／市場／股本）</button>
+  <div class="group">
+    <div class="group-head"><span>旅行社</span><span class="badge">7 檔</span></div>
+    <div class="hint">← 可左右滑動 →</div>
+    <div class="tscroll"><table>
+      <thead><tr><th>代號</th><th>名稱</th><th>市場</th><th>成交張</th><th>最高</th><th>最低</th><th>昨收</th><th>收盤</th><th>漲跌</th><th>漲幅%</th><th>PE</th><th>市值億</th><th>股本億</th></tr></thead>
+      <tbody>
+        <tr><td class="num">2731</td><td class="name">雄獅</td><td><span class="bx bl">上市</span></td><td class="num">238</td><td class="num">145.50</td><td class="num">144.00</td><td class="num">144.00</td><td class="num">145.00</td><td class="num up">+1.00</td><td class="num up">+0.69%</td><td class="num">8.86</td><td class="num">135.25</td><td class="num">9.33</td></tr>
+        <tr><td class="num">2745</td><td class="name">五福</td><td><span class="bx bo">上櫃</span></td><td class="num">43</td><td class="num">86.10</td><td class="num">85.70</td><td class="num">85.80</td><td class="num">86.00</td><td class="num up">+0.20</td><td class="num up">+0.23%</td><td class="num">8.71</td><td class="num">29.08</td><td class="num">3.38</td></tr>
+        <tr><td class="num">2743</td><td class="name">山富</td><td><span class="bx bo">上櫃</span></td><td class="num">27</td><td class="num">52.00</td><td class="num">51.00</td><td class="num">51.50</td><td class="num">51.90</td><td class="num up">+0.40</td><td class="num up">+0.78%</td><td class="num">13.99</td><td class="num">24.30</td><td class="num">4.68</td></tr>
+        <tr><td class="num">6961</td><td class="name">旅天下</td><td><span class="bx bo">上櫃</span></td><td class="num">6</td><td class="num">45.95</td><td class="num">45.60</td><td class="num">45.75</td><td class="num">45.60</td><td class="num dn">-0.15</td><td class="num dn">-0.33%</td><td class="num">17.80</td><td class="num">12.24</td><td class="num">2.68</td></tr>
+        <tr><td class="num">5706</td><td class="name">鳳凰</td><td><span class="bx bl">上市</span></td><td class="num">109</td><td class="num">44.70</td><td class="num">44.20</td><td class="num">44.50</td><td class="num">44.20</td><td class="num dn">-0.30</td><td class="num dn">-0.67%</td><td class="num">11.44</td><td class="num">37.03</td><td class="num">8.38</td></tr>
+        <tr><td class="num">2719</td><td class="name">燦星旅</td><td><span class="bx bo">上櫃</span></td><td class="num">8</td><td class="num">19.35</td><td class="num">19.15</td><td class="num">19.15</td><td class="num">19.35</td><td class="num up">+0.20</td><td class="num up">+1.04%</td><td class="num">27.75</td><td class="num">13.44</td><td class="num">6.95</td></tr>
+        <tr><td class="num">2734</td><td class="name">易飛網</td><td><span class="bx bo">上櫃</span></td><td class="num">178</td><td class="num">14.65</td><td class="num">14.40</td><td class="num">14.30</td><td class="num">14.65</td><td class="num up">+0.35</td><td class="num up">+2.45%</td><td class="num na">—</td><td class="num">8.39</td><td class="num">5.73</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="group">
+    <div class="group-head"><span>飯店業</span><span class="badge">6 檔</span></div>
+    <div class="hint">← 可左右滑動 →</div>
+    <div class="tscroll"><table>
+      <thead><tr><th>代號</th><th>名稱</th><th>市場</th><th>成交張</th><th>最高</th><th>最低</th><th>昨收</th><th>收盤</th><th>漲跌</th><th>漲幅%</th><th>PE</th><th>市值億</th><th>股本億</th></tr></thead>
+      <tbody>
+        <tr><td class="num">2707</td><td class="name">晶華</td><td><span class="bx bl">上市</span></td><td class="num">117</td><td class="num">176.00</td><td class="num">175.00</td><td class="num">175.00</td><td class="num">176.00</td><td class="num up">+1.00</td><td class="num up">+0.57%</td><td class="num">12.12</td><td class="num">224.23</td><td class="num">12.74</td></tr>
+        <tr><td class="num">2748</td><td class="name">雲品</td><td><span class="bx bl">上市</span></td><td class="num">21</td><td class="num">39.05</td><td class="num">38.65</td><td class="num">38.65</td><td class="num">38.90</td><td class="num up">+0.25</td><td class="num up">+0.65%</td><td class="num">15.22</td><td class="num">41.15</td><td class="num">10.58</td></tr>
+        <tr><td class="num">2739</td><td class="name">寒舍</td><td><span class="bx bl">上市</span></td><td class="num">29</td><td class="num">36.40</td><td class="num">36.05</td><td class="num">36.20</td><td class="num">36.05</td><td class="num dn">-0.15</td><td class="num dn">-0.41%</td><td class="num">8.98</td><td class="num">33.00</td><td class="num">9.15</td></tr>
+        <tr><td class="num">5704</td><td class="name">老爺知</td><td><span class="bx bo">上櫃</span></td><td class="num">60</td><td class="num">23.10</td><td class="num">22.50</td><td class="num">22.50</td><td class="num">22.85</td><td class="num up">+0.35</td><td class="num up">+1.56%</td><td class="num">160.71</td><td class="num">13.45</td><td class="num">5.89</td></tr>
+        <tr><td class="num">2705</td><td class="name">六福</td><td><span class="bx bl">上市</span></td><td class="num">174</td><td class="num">15.10</td><td class="num">15.00</td><td class="num">15.10</td><td class="num">15.05</td><td class="num dn">-0.05</td><td class="num dn">-0.33%</td><td class="num">20.41</td><td class="num">28.79</td><td class="num">19.13</td></tr>
+        <tr><td class="num">2712</td><td class="name">遠雄來</td><td><span class="bx bl">上市</span></td><td class="num">18</td><td class="num">13.30</td><td class="num">13.20</td><td class="num">13.20</td><td class="num">13.30</td><td class="num up">+0.10</td><td class="num up">+0.76%</td><td class="num na">—</td><td class="num">13.97</td><td class="num">10.50</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="group">
+    <div class="group-head"><span>餐飲業</span><span class="badge">9 檔</span></div>
+    <div class="hint">← 可左右滑動 →</div>
+    <div class="tscroll"><table>
+      <thead><tr><th>代號</th><th>名稱</th><th>市場</th><th>成交張</th><th>最高</th><th>最低</th><th>昨收</th><th>收盤</th><th>漲跌</th><th>漲幅%</th><th>PE</th><th>市值億</th><th>股本億</th></tr></thead>
+      <tbody>
+        <tr><td class="num">7883</td><td class="name">饗賓</td><td><span class="bx be">興櫃</span></td><td class="num">48.04</td><td class="num">278.50</td><td class="num">259.00</td><td class="num">266.33</td><td class="num">274.00</td><td class="num up">+7.67</td><td class="num up">+2.88%</td><td class="num">21.78</td><td class="num">167.02</td><td class="num">6.10</td></tr>
+        <tr><td class="num">2727</td><td class="name">王品</td><td><span class="bx bl">上市</span></td><td class="num">429</td><td class="num">237.50</td><td class="num">233.00</td><td class="num">233.50</td><td class="num">237.50</td><td class="num up">+4.00</td><td class="num up">+1.71%</td><td class="num">12.97</td><td class="num">196.98</td><td class="num">8.29</td></tr>
+        <tr><td class="num">2753</td><td class="name">八方雲集</td><td><span class="bx bl">上市</span></td><td class="num">147</td><td class="num">185.50</td><td class="num">183.00</td><td class="num">184.00</td><td class="num">185.00</td><td class="num up">+1.00</td><td class="num up">+0.54%</td><td class="num">13.11</td><td class="num">123.29</td><td class="num">6.66</td></tr>
+        <tr><td class="num">2752</td><td class="name">豆府</td><td><span class="bx bo">上櫃</span></td><td class="num">3</td><td class="num">180.00</td><td class="num">179.50</td><td class="num">178.50</td><td class="num">180.00</td><td class="num up">+1.50</td><td class="num up">+0.84%</td><td class="num">10.95</td><td class="num">48.05</td><td class="num">2.67</td></tr>
+        <tr><td class="num">1268</td><td class="name">漢來美食</td><td><span class="bx bo">上櫃</span></td><td class="num">15</td><td class="num">175.00</td><td class="num">174.00</td><td class="num">175.00</td><td class="num">174.50</td><td class="num dn">-0.50</td><td class="num dn">-0.29%</td><td class="num">13.28</td><td class="num">73.68</td><td class="num">4.22</td></tr>
+        <tr><td class="num">2729</td><td class="name">瓦城</td><td><span class="bx bo">上櫃</span></td><td class="num">9</td><td class="num">154.50</td><td class="num">153.50</td><td class="num">154.50</td><td class="num">154.50</td><td class="num fl">0.00</td><td class="num fl">0.00%</td><td class="num">25.37</td><td class="num">66.50</td><td class="num">4.30</td></tr>
+        <tr><td class="num">2723</td><td class="name">美食-KY</td><td><span class="bx bl">上市</span></td><td class="num">183</td><td class="num">80.40</td><td class="num">79.50</td><td class="num">80.10</td><td class="num">79.80</td><td class="num dn">-0.30</td><td class="num dn">-0.37%</td><td class="num na">—</td><td class="num">143.64</td><td class="num">18.00</td></tr>
+        <tr><td class="num">1259</td><td class="name">安心</td><td><span class="bx bo">上櫃</span></td><td class="num">12</td><td class="num">65.50</td><td class="num">64.20</td><td class="num">65.50</td><td class="num">64.20</td><td class="num dn">-1.30</td><td class="num dn">-1.98%</td><td class="num">18.50</td><td class="num">20.79</td><td class="num">3.24</td></tr>
+        <tr><td class="num">2732</td><td class="name">六角</td><td><span class="bx bo">上櫃</span></td><td class="num">13</td><td class="num">63.20</td><td class="num">63.00</td><td class="num">63.20</td><td class="num">63.20</td><td class="num fl">0.00</td><td class="num fl">0.00%</td><td class="num">18.37</td><td class="num">29.40</td><td class="num">4.65</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="group">
+    <div class="group-head"><span>航空業</span><span class="badge">4 檔</span></div>
+    <div class="hint">← 可左右滑動 →</div>
+    <div class="tscroll"><table>
+      <thead><tr><th>代號</th><th>名稱</th><th>市場</th><th>成交張</th><th>最高</th><th>最低</th><th>昨收</th><th>收盤</th><th>漲跌</th><th>漲幅%</th><th>PE</th><th>市值億</th><th>股本億</th></tr></thead>
+      <tbody>
+        <tr><td class="num">6757</td><td class="name">虎航</td><td><span class="bx bl">上市</span></td><td class="num">212</td><td class="num">53.70</td><td class="num">53.00</td><td class="num">53.20</td><td class="num">53.30</td><td class="num up">+0.10</td><td class="num up">+0.19%</td><td class="num">9.24</td><td class="num">244.93</td><td class="num">45.95</td></tr>
+        <tr><td class="num">2618</td><td class="name">長榮航</td><td><span class="bx bl">上市</span></td><td class="num">10,747</td><td class="num">41.95</td><td class="num">41.40</td><td class="num">41.95</td><td class="num">41.40</td><td class="num dn">-0.55</td><td class="num dn">-1.31%</td><td class="num">8.83</td><td class="num">2,235.78</td><td class="num">540.04</td></tr>
+        <tr><td class="num">2610</td><td class="name">華航</td><td><span class="bx bl">上市</span></td><td class="num">8,108</td><td class="num">20.30</td><td class="num">20.15</td><td class="num">20.35</td><td class="num">20.15</td><td class="num dn">-0.20</td><td class="num dn">-0.98%</td><td class="num">9.42</td><td class="num">1,238.22</td><td class="num">614.50</td></tr>
+        <tr><td class="num">2646</td><td class="name">星宇</td><td><span class="bx bl">上市</span></td><td class="num">2,448</td><td class="num">20.10</td><td class="num">20.00</td><td class="num">20.10</td><td class="num">20.10</td><td class="num fl">0.00</td><td class="num fl">0.00%</td><td class="num na">—</td><td class="num">604.76</td><td class="num">300.87</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="group">
+    <div class="group-head"><span>保險業</span><span class="badge">2 檔</span></div>
+    <div class="hint">← 可左右滑動 →</div>
+    <div class="tscroll"><table>
+      <thead><tr><th>代號</th><th>名稱</th><th>市場</th><th>成交張</th><th>最高</th><th>最低</th><th>昨收</th><th>收盤</th><th>漲跌</th><th>漲幅%</th><th>PE</th><th>市值億</th><th>股本億</th></tr></thead>
+      <tbody>
+        <tr><td class="num">6028</td><td class="name">公勝保經</td><td><span class="bx bo">上櫃</span></td><td class="num">59</td><td class="num">114.00</td><td class="num">106.50</td><td class="num">112.00</td><td class="num">113.50</td><td class="num up">+1.50</td><td class="num up">+1.34%</td><td class="num">10.95</td><td class="num">28.38</td><td class="num">2.50</td></tr>
+        <tr><td class="num">5878</td><td class="name">台名</td><td><span class="bx bo">上櫃</span></td><td class="num">3</td><td class="num">37.50</td><td class="num">37.50</td><td class="num">37.50</td><td class="num">37.50</td><td class="num fl">0.00</td><td class="num fl">0.00%</td><td class="num">14.94</td><td class="num">9.38</td><td class="num">2.50</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <footer>觀光產業看盤日報｜資料來源：Google Sheets StockData / 大盤（TWSE MI_INDEX）｜產出時間：2026-10-08 盤後｜最高/最低/成交張已依券商截圖校正</footer>
+
+</div>
+<script>document.getElementById("tg").addEventListener("click",function(){var f=document.body.classList.toggle("full");this.textContent=f?"收合為精簡欄位":"顯示完整欄位（最高／最低／昨收／市場／股本）";});</script>
+</body>
+</html>
